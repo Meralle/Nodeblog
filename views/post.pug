@@ -1,0 +1,14 @@
+extends layout.pug
+block content
+	body
+		.container.mt-5.text-left
+			h1 Posts route
+			ul.list-group
+					li.list-group-item
+						span.mr-3="name:" + post.name
+						br
+						span.mr-3="content:" + post.content
+						br
+						span.mr-3="order:" + post.order
+						a(href="/posts/") back
+		
