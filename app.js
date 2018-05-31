@@ -4,6 +4,7 @@ var path = require('path');
 var router = express.Router();
 require('dotenv').config();
 var mongoose = require('mongoose');
+var methodOverride = require('method-override');
 
 
 var app = express();
@@ -31,13 +32,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-
+app.use(methodOverride('_method'));
+//meddleware
+app.use(function (req, res, next) {
+	// console.log(res.locals)
+	if(req.query.alert === 'done'){
+	// console.log(req.query)
+		res.locals.message = 'successfully done';
+	}else if (req.query.alert === 'create')
+	{res.locals.message = 'successfully created'}
+	else if (req.query.alert === 'delete')
+		{res.locals.message = 'successfully deleted'}
+	
+  console.log('Request Type:', req.method)
+  next();
+})
 
 var postRoute = require('./routes/posts');
 var indexRoute = require('./routes/index');
 
 app.use('/posts', postRoute);
 app.use('/', indexRoute);
+
+
 
 
 //load view engine
