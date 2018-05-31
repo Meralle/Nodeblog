@@ -13,7 +13,7 @@ block content
 
 				.mb-3
 					label-sr-only(for='inputContent') Content
-					button#inputContent.form-control(name='content',placeholder='Content', required='', autofocus='' value=post.content)
+					textarea#inputContent.form-control(name='content',placeholder='Content', required='', autofocus='')= post.content
 
 				.mb-3
 					label-sr-only(for='inputContent') Order

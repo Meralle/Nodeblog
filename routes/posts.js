@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
 		});
 
 	});
-	
+
 });
 
 //edit post
@@ -76,9 +76,9 @@ Post.findById(req.params.id, (err, post) => {
 			if (err)
 				res.send(err);
 
-		console.log("Post updated:", post);
+			console.log("Post updated:", post);
 
-	res.redirect("/posts/editPost/" + req.params.id + '?alert=done');
+			res.redirect("/posts/editPost/" + req.params.id + '?alert=done');
 
 		});
 
