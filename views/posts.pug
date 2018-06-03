@@ -1,33 +1,33 @@
 extends layout.pug
 block content
 	body
-		.container.mt-5.text-left
-			h1 Posts route
-			ul.list-group
-				each post in posts
-					form.form-signin(method='POST', action='http://localhost:4000/posts/delete/' + post._id + 
-			'?_method=DELETE')
-						span.mr-3="name:" + post.name
-						span.mr-3="content:" + post.content
-						span.mr-3="order:" + post.order
-						a(href="/posts/" + post._id) show
-						br
-						button.btn.btn-lg.btn-success(type='submit') delete
-		form.form-signin(method='POST', action='http://localhost:4000/posts')
-			h1.h3.mb-3.font-weight-normal Create a new Post
-			
-			.mb-3
-				label-sr-only(for='inputName') Name
-				input#inputName.form-control(name='name', type='text', placeholder='Name', required='', autofocus='')
+		h3.container Posts route
+		ul.list-group
+			each post in posts
+				form.form-signin.list-group-item.mb-3.z-depth-1.hoverable.container(method='POST', action='http://localhost:4000/posts/delete/' + post._id + 
+		'?_method=DELETE')
+					br
+					button.btn-floating.btn-small.waves-effect.waves-light.red.right.z-depth-0(type='submit') X
+					br
+					li.mr-3="name:" + post.name
+					li.mr-3="content:" + post.content
+					li.mr-3="order:" + post.order
+					a(href="/posts/" + post._id) show
+	form.form-signin.container(method='POST', action='http://localhost:4000/posts')
+		h2.h3.mb-3.font-weight-normal Create a new Post
+		
+		.mb-3
+			label-sr-only(for='inputName') Name
+			input#inputName.form-control(name='name', type='text', placeholder='Name', required='', autofocus='')
 
-			.mb-3
-				label-sr-only(for='inputContent') Content
-				textarea#inputContent.form-control(name='content', placeholder='Content', required='', autofocus='')
+		.mb-3
+			label-sr-only(for='inputContent') Content
+			input#inputContent.form-control(name='content', placeholder='Content', required='', autofocus='')
 
-			.mb-3
-				label-sr-only(for='inputContent') Order
-				input#inputOrder.form-control(name='order', type='number', placeholder='Order', required='', autofocus='')
+		.mb-3
+			label-sr-only(for='inputContent') Order
+			input#inputOrder.form-control(name='order', type='number', placeholder='Order', required='', autofocus='')
 
-			button.btn.btn-lg.btn-success.btn-block(type='submit') Create post
-			p.mt-5.mb-3.text-muted 
-			
+		button.btn.btn-lg.waves-light.limn.btn-block(type='submit') Create post
+		p.mt-5.mb-3.text-muted 
+		

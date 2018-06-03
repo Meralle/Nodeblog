@@ -4,7 +4,7 @@ block content
 		.container.mt-5.text-left
 			form.form-signin(method='POST', action='http://localhost:4000/posts/' + post._id + 
 			'?_method=PUT')
-				h1.h3.mb-3.font-weight-normal Edit Posts
+				h3.h3.mb-3.font-weight-normal Edit Posts
 				
 				.mb-3
 					label-sr-only(for='inputName') Name
@@ -13,13 +13,14 @@ block content
 
 				.mb-3
 					label-sr-only(for='inputContent') Content
-					textarea#inputContent.form-control(name='content',placeholder='Content', required='', autofocus='')= post.content
+					input#inputContent.form-control(name='content', type='text' ,placeholder='Content', required='', autofocus='' value=post.content) 
 
 				.mb-3
 					label-sr-only(for='inputContent') Order
 					input#inputOrder.form-control(name='order', type='number', placeholder='Order', required='', autofocus='' value=post.order)
 
 				button.btn.btn-lg.btn-success.btn-block(type='submit') Edit
-				a(href="/posts/") back
+				br
+				a.btn.btn-default(href="/posts/") back
 				p.mt-5.mb-3.text-muted 
 				

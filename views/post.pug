@@ -1,15 +1,18 @@
 extends layout.pug
 block content
 	body
-		.container.mt-5.text-left
-			h1 Posts route
-			ul.list-group
-					li.list-group-item
-						span.mr-3="name:" + post.name
-						br
-						span.mr-3="content:" + post.content
-						br
-						span.mr-3="order:" + post.order
-						a(href="/posts/") back
-						a.btn.btn-default(href="/posts/editPost/" + post._id) edit
+		br
+		h3.container Posts route
+		br
+		ul.list-group.list-group-item.mb-3.z-depth-1.hoverable.container
+				li.list-group-item
+					li.mr-3="name:" + post.name
+					br
+					li.mr-3="content:" + post.content
+					br
+					li.mr-3="order:" + post.order
+					br
+					a.btn.btn-default(href="/posts/") back 
+					brbr
+					a.btn.btn-default(href="/posts/editPost/" + post._id) edit
 		

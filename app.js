@@ -32,6 +32,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+
+
+
 app.use(methodOverride('_method'));
 //meddleware
 app.use(function (req, res, next) {
@@ -53,7 +56,8 @@ var indexRoute = require('./routes/index');
 
 app.use('/posts', postRoute);
 app.use('/', indexRoute);
-
+//
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 
